@@ -74,6 +74,24 @@ class VcsIgnoredFilterIteratorTest extends IteratorTestCase
             ],
         ];
 
+        yield 'simple file - .gitignore and in() from repository root' => [
+            [
+                '.gitignore' => 'a.txt',
+            ],
+            [
+                '.git',
+                'a.txt',
+                'b.txt',
+                'dir/',
+                'dir/a.txt',
+            ],
+            [
+                '.git',
+                'b.txt',
+                'dir',
+            ],
+        ];
+
         yield 'simple file at root' => [
             [
                 '.gitignore' => '/a.txt',
